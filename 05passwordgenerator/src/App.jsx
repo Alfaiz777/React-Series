@@ -12,58 +12,61 @@ function App() {
 
     if (numberAllowed) str += "0123456789";
     if (charAllowed) str += "!@#$%^&*-_+[]~";
-  }, [length, numberAllowed, charAllowed, setPassword]);
 
-  for (let i = 1; i <= length; i++) {
-    let char = Math.floor(Math.random() * str.length + 1);
+    for (let i = 0; i < length; i++) {
+      let index = Math.floor(Math.random() * str.length);
+      pass += str.charAt(index);
+    }
 
-    pass += str.charAt(char);
-  }
-
-  setPasword(pass);
+    setPassword(pass);
+  }, [length, numberAllowed, charAllowed]);
 
   return (
     <>
-      <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 text-orange-500 bg-gray-800">
-        <div className="flex shadow rounded-lg overflow-hidden mb-4">
-          <input
-            type="text"
-            value={password}
-            className="outline-none w-full py-1 px-3"
-            placeholder="password"
-            readOnly
-          />
-          <button className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0">
-            copy
-          </button>
-        </div>
-        <div className="flex text-sm gap-x-2">
-          <div className="flex items-center gap-x-1">
-            <input
-              type="range"
-              min={6}
-              max={100}
-              value={length}
-              className="cursor-pointer"
-              onChange={(e) => {
-                setLength(e.target.value);
-              }}
-            />
-            <label>Label {length}</label>
-          </div>
-          <div className="flex items-center gap-x-1">
-            <input
-              type="checkbox"
-              defaultChecked={numberAllowed}
-              onChange={() => {
-                setNumberAllowed((prev) => !prev);
-                id = "numberInput";
-              }}
-            />
-            <label htmlFor=""></label>
-          </div>
-        </div>
-      </div>
+      <h2>Password Generator</h2>
+
+      {/* Password Display */}
+      <input type="text" value={password} readOnly />
+
+      {/* Generate Button */}
+      <button onClick={passwordGenerator}>Generate Password</button>
+
+      <br />
+      <br />
+
+      {/* Length Slider */}
+      <label>Password Length: {length}</label>
+      <input
+        type="range"
+        min={6}
+        max={100}
+        value={length}
+        onChange={(e) => setLength(Number(e.target.value))}
+      />
+
+      <br />
+
+      {/* Numbers Checkbox */}
+      <label>
+        <input
+          type="checkbox"
+          checked={numberAllowed}
+          onChange={() => setNumberAllowed((prev) => !prev)}
+        />
+        Include Numbers
+      </label>
+
+      <br />
+
+      {/* Characters Checkbox */}
+      <label>
+        <input
+          type="checkbox"
+          checked={charAllowed}
+          onChange={() => setCharAllowed((prev) => !prev)}
+        />
+        Include Special Characters
+      </label>
     </>
   );
 }
