@@ -4,6 +4,7 @@ import { InputBox } from "./components";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
 import useToggle from "./hooks/useToggle";
 import useCounter from "./hooks/useCounter";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
   const [amount, setAmount] = useState(0);
@@ -11,10 +12,16 @@ function App() {
   const [to, setTo] = useState("inr");
   const [convertedAmount, setConvertedAmount] = useState(0);
 
+  //----------
+
+  const [name, setName] = useLocalStorage("username", "");
+
   const currencyInfo = useCurrencyInfo(from);
 
   const [isOpen, toggle] = useToggle(false);
   const [count, increment, decrement, reset] = useCounter();
+
+  //--------------
 
   const options = Object.keys(currencyInfo || {});
 
@@ -38,13 +45,15 @@ function App() {
       }}
     >
       <div className="w-full">
+        <button onClick={toggle}>Toggle</button>
+        <p>{isOpen ? "Open" : "Closed"}</p>
         <button onClick={increment}>add</button> <span></span>
         <button onClick={decrement}>delete</button> <span></span>
         <button onClick={reset}>reset</button>
         <p>{count}</p>
+        <br></br>
+        <input value={name} onChange={(e) => setName(e.target.value)} />
         <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
-          <button onClick={toggle}>Toggle</button>
-          <p>{isOpen ? "Open" : "Closed"}</p>
           <form
             onSubmit={(e) => {
               e.preventDefault();
