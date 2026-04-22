@@ -6,7 +6,6 @@ import UserContextProvider from "./context/UserContextProvider";
 function App() {
   return (
     <UserContextProvider>
-      <h1 class="text-3xl font-bold underline bg-amber-400">Hello world!</h1>
       <Login />
       <Profile />
     </UserContextProvider>
