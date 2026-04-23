@@ -1,9 +1,16 @@
+import AuthProvider from "./contexts/AuthProvider";
+import ThemeProvider from "./contexts/ThemeProvider";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold bg-amber-100 underline">
-        Hello world!
-      </h1>
+      <AuthProvider>
+        <ThemeProvider>
+          <Navbar />
+        </ThemeProvider>
+      </AuthProvider>
+      ;
     </>
   );
 }

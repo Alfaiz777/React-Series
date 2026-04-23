@@ -7,8 +7,6 @@ export const AuthContext = createContext({
   logout: () => {},
 });
 
-export const AuthProvider = AuthContext.Provider;
-
 export default function useAuth() {
   return useContext(AuthContext);
 }
