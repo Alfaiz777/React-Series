@@ -1,7 +1,11 @@
+import AddTodo from "./components/AddTodo";
+import Todos from "./components/Todos";
+
 function App() {
   return (
     <>
-      <h1 class="text-3xl font-bold underline bg-amber-400">Hello world!</h1>
+      <AddTodo />
+      <Todos />
     </>
   );
 }
