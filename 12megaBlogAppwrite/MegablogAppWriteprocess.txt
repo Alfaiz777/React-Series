@@ -1,0 +1,4 @@
+first create fresh project with create vite and install tailwind
+
+then install all the dependencies that we need for the project
+
