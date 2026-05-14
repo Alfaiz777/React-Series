@@ -2,6 +2,10 @@
 
 
 
+###### **ENV AND APPWRITE :-**
+
+
+
 **then install all the dependencies that we need for the project**
 
 
@@ -12,7 +16,7 @@
 
 \- npm install react-router-dom
 
-\- npm install appwrite 
+\- npm install appwrite
 
 \- npm i @tinymce/tinymce-react
 
@@ -51,7 +55,27 @@
 * now we will create index so on basis of it we can do filtering. go to index -> create Index -> write key name status -> type-key -> select column - status and put in ascending order as per your choice.
 * so for BUCKET\_ID.. go to storage -> create bucket -> name-'images' and copy and paste bucket id in .env file. now there is also same issue in this in bucket images go to setting and give  permission -> add role -> all users ->CRUD.
 * so we have written this line to  access env variables -   console.log(import.meta.env.VITE\_APPWRITE\_URL); but sometimes the this may not process or env may not load and our app may got crashed. so there is a better way to access it. create config folder in src and in that create config.js file and create obj and in that export key value pairs in this of env variables.
-* 
+
+
+
+###### **BUILD AUTHENTICATION SERVICE WITH APPWRITE :-**
+
+
+
+**how to do authentication:**
+
+
+
+* first go to auth docs in appwrite and understand how to do authentication.
+* since we are creating service for appwrite, make a appwrite folder and all the work related to it will be in this folder and in that create authService.js file to write service. you can copy paste the basic code from documentation and it can work still, but sometimes it creates problem in register component where we need to expose it.
+* the better approach is we create class for this and export it. till here we have made simple class and export it. but those who will use this class they need to create obj from this class to access methods , so we will directly make an obj for authservice and so that i can import directly and use the methods from it.
+* now inside this object create client and account based on class format, bcoz when you will see documentation how to create client and account is written in different format but we have used class so we are writing different format based on constructor, but ti does the same work.
+* now for creating account is easy as you can see in docs like give userid and email and other fields that you want to give but we dont want dependency. bcoz may be at sometime you need to make changes in app write , so you will not go everywhere and change it. so to solve this i will create pone async method(i have used bcoz i dont wanna go ahead until account creation is complete) like a wrapper in which i will call the appwrite services.
+* so create async createAccount() method and destructure it with values that you want to take it as a parameter. (email, password, name). and this account creation method may fail, so use try catch block. now throw error in catch block and in try block write the account creation code.
+* then create login method. and after login method is created you can call it in createAccount method where you have got already access of email and password.
+* now we will create another services based on scenario like, if we directly land on homepage and how do i know if am logged in or not ? so for this we will create one method - getCurrentUser(). now in this method we dont need to pass any argument or anything we can simple ask the 'account' whether this user exist or not. so use account.get() method.
+* now to create logout service , we use delete session method (read in docs)
+* so our Authentication service is created for our appwrite.
 
 
 
