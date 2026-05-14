@@ -79,5 +79,17 @@
 
 
 
+###### **APPWRITE DATABASE, FILE UPLOAD AND CUSTOM QEURIES :-**
+
+
+
+* now in this we will create another services, first of all we are making blog and for this we need to upload and the images are stored in collections. 
+* so create config.js file and in this our major configurations will be there. the work is almost same as what we have done in auth.js file.
+* now make service class and make object for direct access of the method.
+* now write the variables. now the point comes when account should be created in variables ? it is done through constructor call. so create client same as previous and also fill the variables values for databases and bucket.
+* 
+
+
+
 
 
