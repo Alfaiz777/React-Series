@@ -69,8 +69,8 @@
 * first go to auth docs in appwrite and understand how to do authentication.
 * since we are creating service for appwrite, make a appwrite folder and all the work related to it will be in this folder and in that create authService.js file to write service. you can copy paste the basic code from documentation and it can work still, but sometimes it creates problem in register component where we need to expose it.
 * the better approach is we create class for this and export it. till here we have made simple class and export it. but those who will use this class they need to create obj from this class to access methods , so we will directly make an obj for authservice and so that i can import directly and use the methods from it.
-* now inside this object create client and account based on class format, bcoz when you will see documentation how to create client and account is written in different format but we have used class so we are writing different format based on constructor, but ti does the same work.
-* now for creating account is easy as you can see in docs like give userid and email and other fields that you want to give but we dont want dependency. bcoz may be at sometime you need to make changes in app write , so you will not go everywhere and change it. so to solve this i will create pone async method(i have used bcoz i dont wanna go ahead until account creation is complete) like a wrapper in which i will call the appwrite services.
+* now inside this object create client and account based on class format, bcoz when you will see documentation how to create client and account is written in different format but we have used class so we are writing different format based on constructor, but it does the same work.
+* now for creating account is easy as you can see in docs like give userid and email and other fields that you want to give but we dont want dependency. bcoz may be at sometime you need to make changes in app write , so you will not go everywhere and change it. so to solve this i will create one async method(i have used bcoz i dont wanna go ahead until account creation is complete) like a wrapper in which i will call the appwrite services.
 * so create async createAccount() method and destructure it with values that you want to take it as a parameter. (email, password, name). and this account creation method may fail, so use try catch block. now throw error in catch block and in try block write the account creation code.
 * then create login method. and after login method is created you can call it in createAccount method where you have got already access of email and password.
 * now we will create another services based on scenario like, if we directly land on homepage and how do i know if am logged in or not ? so for this we will create one method - getCurrentUser(). now in this method we dont need to pass any argument or anything we can simple ask the 'account' whether this user exist or not. so use account.get() method.
@@ -83,13 +83,9 @@
 
 
 
-* now in this we will create another services, first of all we are making blog and for this we need to upload and the images are stored in collections. 
+* now in this we will create another services, first of all we are making blog and for this we need to upload and the images are stored in collections.
 * so create config.js file and in this our major configurations will be there. the work is almost same as what we have done in auth.js file.
 * now make service class and make object for direct access of the method.
-* now write the variables. now the point comes when account should be created in variables ? it is done through constructor call. so create client same as previous and also fill the variables values for databases and bucket.
+* now write the variables. now the point comes when account should be c,reated in variables ? it is done through constructor call. so create client same as previous and also fill the variables values for databases and bucket.
 * 
-
-
-
-
 
