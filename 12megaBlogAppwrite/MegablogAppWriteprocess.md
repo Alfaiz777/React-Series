@@ -86,6 +86,29 @@
 * now in this we will create another services, first of all we are making blog and for this we need to upload and the images are stored in collections.
 * so create config.js file and in this our major configurations will be there. the work is almost same as what we have done in auth.js file.
 * now make service class and make object for direct access of the method.
-* now write the variables. now the point comes when account should be c,reated in variables ? it is done through constructor call. so create client same as previous and also fill the variables values for databases and bucket.
+* now write the variables. now the point comes when account should be created in variables ? it is done through constructor call. so create client same as previous and also fill the variables values for databases and bucket.
+* now the first thing comes, how can i create a post ?. so we will make one method createPost(). so to create post what values do we need ? just destructure that as parameter in method.
+* now one thought will how we will get the featured img so for this we create one method storage from there we can call the img and we will return the img from this(createPost method).
+* now read the databases docs, how to create document, here we will understand how to create post, so the use the createDocument method of appwrite. so first we will pass databaseId, then collectionId, then for documentId you can pass ID.unique bit here we will pass slug value that we have defined which will be giving me documentId and now pass the object > in this what further information you want to pass , pass the values. so here createPost is complete.
+* now to update post create method which is similar to it (read docs). now there come one issue which document do i need to update for that i need to pass first documentId(slug) and then object. bcoz if we take DocumentId separately will get much better bcoz if we take values in all the object than we need to find the value one by one bcoz we need to update the exact document. there is no need of taking userID here (your choice) bcoz those who want to update only they can update so it will come from there. so update post part is completed.
+* now for delete read deletedocument docs. and write similar code.
+* now if i want one post so i need to get documentId of that post. so i will use getdocument method (read from docs)
+* now if i want all documents or post i will use listdocuments method(read from docs). but i dont want like this, i dont want all documents bcoz those document/post whose status is not active will also appear, i want only active ones. so here we will understand the concept of queries.(read form docs) here we will use indexing that we have created in tables.. so create one method getposts and in that pass one variable queries and in that write the query format of what you want like i want like post whose status is active and try catch block code remains similar to docs.
+* now we will create fileUpload service. so create method upload file and pass file as parameter. most of the people do mistake here, when doing file upload they just give name, but we dont need to give name, we need to give blob - actual file. to write code format (read docs - storage create file) - give bucketed , then dont file name, give unique iD there - ID.unique, then give file.
+* now we will make another file service which is filepreview for this there is getFilepreview method (read docs) we need bucketId and fileId. 
+* so our appwrite and configuration are all done and next we will work on redux toolkit bcoz there store should know if user is logged in or not, we will write some logic there.
+
+
+
+###### **HOW TO CONFIGURE REDUX TOOLKIT IN BIG PROJECT, (WRITING REDUX TOOLKIT LOGIC) :-**
+
+
+
 * 
+
+
+
+
+
+
 
