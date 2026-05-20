@@ -95,7 +95,7 @@
 * now if i want one post so i need to get documentId of that post. so i will use getdocument method (read from docs)
 * now if i want all documents or post i will use listdocuments method(read from docs). but i dont want like this, i dont want all documents bcoz those document/post whose status is not active will also appear, i want only active ones. so here we will understand the concept of queries.(read form docs) here we will use indexing that we have created in tables.. so create one method getposts and in that pass one variable queries and in that write the query format of what you want like i want like post whose status is active and try catch block code remains similar to docs.
 * now we will create fileUpload service. so create method upload file and pass file as parameter. most of the people do mistake here, when doing file upload they just give name, but we dont need to give name, we need to give blob - actual file. to write code format (read docs - storage create file) - give bucketed , then dont file name, give unique iD there - ID.unique, then give file.
-* now we will make another file service which is filepreview for this there is getFilepreview method (read docs) we need bucketId and fileId. 
+* now we will make another file service which is filepreview for this there is getFilepreview method (read docs) we need bucketId and fileId.
 * so our appwrite and configuration are all done and next we will work on redux toolkit bcoz there store should know if user is logged in or not, we will write some logic there.
 
 
@@ -104,11 +104,18 @@
 
 
 
-* 
-
-
-
-
-
-
+* so first create store for state management
+* we will create another store that will track authentication. same we can create for post etc.
+* now create authSlice.js file in store folder to keep track on authentication means user is authenicsted or not i will ask the store everytime(you can keep it features folder too).first import createSlice and first it wants initial state, then name then all reducers functions.
+* create initial state in that keep status default false bcoz user is not authenticated by default and there is no userData still.
+* now we have made slice, first we need to give the name and then initialstate then give reducers. also we need to export the authslice.reducer also we need to export the individual function of the reducers so that diff components can use for the state and dispatch purpose.
+* first create login and logout reducer which keep track of user status and data if he is logged in status is true and if logout status is false.
+* so now we will create two components header and footer in components folder. and create index.js file to export all components from there.
+* now we will work on app.jsx , our main mostly task will be on this file to see when app loads user is logged in or not and this we can see from our state directly. if user is logged in we will show something and if not we will something else. based on it.
+* In App.jsx - first we will create loading state - bcoz when you will fetch data from application from appwrite or if you do any network/database call we must loading state,bcoz network request may take time and if loading is true will show loading icon and if it is false will show some data based on conditional rendering. 
+* write loading state -   const \[loading, setLoading] = useState(true). initially i have set true bcoz when my app will mount , my loading state is true, bcoz on mean time useeffect is doing its work. and inside that useeffect i will set state data to false.
+* now we will use usedispatch we want to send something like we want to get current user etc. and now we will use authservice that we have created. so import the object thst we have created there to access services.
+* now when my application is loaded take useefffect and ask it, if user is logged in or not.so to get current user we will use getCurrentUser service from authservice. if i successfully get the data we will write in .then() and in that i will write dispatch code. and finally code will always run if my data is successfully passed or not it will run. we need to dispatch , if user get  logged in status will change and userData will get from action payload. so we will first dispatch login and in that we get userdata based on if else condition, if i get user data than do login else if there is no data, then we will dispatch logout (it means our state will still remain updated).
+* now our loading is still true we need to off(false) this. in finally so setloading false, bcoz my whole task is completed above and finally i want my loading state to be false.
+* now we will do conditional rendering.
 
