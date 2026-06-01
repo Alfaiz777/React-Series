@@ -112,10 +112,27 @@
 * first create login and logout reducer which keep track of user status and data if he is logged in status is true and if logout status is false.
 * so now we will create two components header and footer in components folder. and create index.js file to export all components from there.
 * now we will work on app.jsx , our main mostly task will be on this file to see when app loads user is logged in or not and this we can see from our state directly. if user is logged in we will show something and if not we will something else. based on it.
-* In App.jsx - first we will create loading state - bcoz when you will fetch data from application from appwrite or if you do any network/database call we must loading state,bcoz network request may take time and if loading is true will show loading icon and if it is false will show some data based on conditional rendering. 
+* In App.jsx - first we will create loading state - bcoz when you will fetch data from application from appwrite or if you do any network/database call we must loading state,bcoz network request may take time and if loading is true will show loading icon and if it is false will show some data based on conditional rendering.
 * write loading state -   const \[loading, setLoading] = useState(true). initially i have set true bcoz when my app will mount , my loading state is true, bcoz on mean time useeffect is doing its work. and inside that useeffect i will set state data to false.
 * now we will use usedispatch we want to send something like we want to get current user etc. and now we will use authservice that we have created. so import the object thst we have created there to access services.
 * now when my application is loaded take useefffect and ask it, if user is logged in or not.so to get current user we will use getCurrentUser service from authservice. if i successfully get the data we will write in .then() and in that i will write dispatch code. and finally code will always run if my data is successfully passed or not it will run. we need to dispatch , if user get  logged in status will change and userData will get from action payload. so we will first dispatch login and in that we get userdata based on if else condition, if i get user data than do login else if there is no data, then we will dispatch logout (it means our state will still remain updated).
 * now our loading is still true we need to off(false) this. in finally so setloading false, bcoz my whole task is completed above and finally i want my loading state to be false.
 * now we will do conditional rendering.
+
+
+
+###### **PRODUCTION GRADE REACT COMPONENTS () :-**
+
+
+
+* okay so first of all we will create container component bcoz, all the content of our app will be within this container, so give classes for this and styling too.
+* now copy the footer notes  and paste it and understand the code, and create and import logo component basic one in it.
+* now we will work with header part where we will show to whom we want to show logout btn or not ,for that we will create LogoutBtn.jsx component. now after logout we need to dispatch or do some action after it, so we need to import actions or reducer from store so we need to import that one. first import useDispatch and then after that import authservice bcoz in this we have created logout service, and also import individual logout feature from the authSlice that we have created earlier.
+* so now first use useDispatch() bcoz we need to dispatch something. then make a logout handler function bcoz it will be a logout btn functionality when it is clicked, so first use the service and call logout and it return promise, so after logout() is called and to handle promise use .then() and .catch() to handle it. in .then() use dispatch(logout()) bcoz after logout , i want the latest value to stay updated in store.
+* now we will create links for the header part and also show logout btn based on conditional rendering, if user is logged in or not. so first import the components from index.js , also import useSelector bcoz to know in store whether user is logged in or not. and import useNavigate to forcefully navigate to other page.
+* now first we will check if user logged in or not by checking status of it. 'authStatus'(from initialstate that we have created) thats why we have import useSelector. then use navigate code part.
+* now create a an array of object to set header links for navbar so that we dont need to create diff btns separately, this is production grade style code, so that in future if need one more navitem , we can simply add the object there.
+* now write the header part code , first create header , then container then nav and made it flex. first add logo part code and set it links to "/" then we need to show the Nav Items where based on conditional rendering like items.active part code and also show logout btn based on conditional rendering.
+* now we will create common button component code. now it will accept children(btn text), type, bgColor, textColor, classname, props as a parameter. the classname is currently empty bcoz programmer may add its own styling later on also "...props" means it accepts all the properties that will be added later on.
+* now we will create the common input field too, for that we need to use one hook 'forwardRef'. and understand the code based on new syntax and the rest code part is similar as previous.
 
