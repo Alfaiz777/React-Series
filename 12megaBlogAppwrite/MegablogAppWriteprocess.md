@@ -143,7 +143,8 @@
 
 
 * first we will create select button. go to components create selectButton.jsx code file. in that we have written different syntax for forward ref as compared to previous one.
-* now we will create postcard component. now we need information which we will get from appwrite service in config.js file, so import this one too.
+* now we will create postcard component. now we need information which we will get from appwrite service in config.js file, so import this one too. and now we need to make postcard clickable so use Link tag and there we dont need to pass whole url just define the exact path there.
+* Now we will create login component with react hook form.
 
 
 
