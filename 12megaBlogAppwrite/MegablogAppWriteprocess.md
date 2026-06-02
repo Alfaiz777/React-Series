@@ -136,3 +136,18 @@
 * now we will create common button component code. now it will accept children(btn text), type, bgColor, textColor, classname, props as a parameter. the classname is currently empty bcoz programmer may add its own styling later on also "...props" means it accepts all the properties that will be added later on.
 * now we will create the common input field too, for that we need to use one hook 'forwardRef'. and understand the code based on new syntax and the rest code part is similar as previous.
 
+
+
+###### **HOW TO USE REACT HOOK FORM IN PRODUCTION () :-**
+
+
+
+* first we will create select button. go to components create selectButton.jsx code file. in that we have written different syntax for forward ref as compared to previous one.
+* now we will create postcard component. now we need information which we will get from appwrite service in config.js file, so import this one too.
+
+
+
+
+
+
+
