@@ -150,5 +150,30 @@
 
 
 
+###### **ADDING FORM AND SLUG VALUES AND CREATING REAL TIME EDITOR(RTE) () :-**
+
+
+
+* first we will create rte, so for that create rte component and write the code and understand it. also how to use this rte, for that make post-form.jsx component, from this file you will understand the concept of label, control, name etc.
+* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
