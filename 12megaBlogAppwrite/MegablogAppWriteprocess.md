@@ -155,15 +155,22 @@
 
 
 * first we will create rte, so for that create rte component and write the code and understand it. also how to use this rte, for that make post-form.jsx component, from this file you will understand the concept of label, control, name etc.
-* 
 
 
 
 
 
+\-ASSIGNMENT - 
+
+&#x20;to work on redux flow and make it more better. if you see the store right now we have only one reducer auth, but there should come one more reducer post which has postslice. bcoz when component is loading specially ya mount ho rha hai so at that i can take all the information and keep that infor. in store bcoz my application does not need make web request again and again and so that i can easily take from store. will get you understand the flow and good for practice and interview.
 
 
 
+understand the code of AUTHLAYOUT deeply.
+
+
+
+see the code of input.jsx in that understand the code base for forward ref and same for select.jsx code file.
 
 
 
