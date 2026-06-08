@@ -14,6 +14,8 @@ function Post() {
 
   const isAuthor = post && userData ? post.userId === userData.$id : false;
 
+  console.log("slug = ", slug);
+
   useEffect(() => {
     if (slug) {
       appWriteService.getPost(slug).then((post) => {
@@ -26,21 +28,27 @@ function Post() {
   const deletePost = () => {
     appWriteService.deletePost(post.$id).then((status) => {
       if (status) {
-        appWriteService.deleteFile(post.featuredImage);
+        appWriteService.deleteFile(post.featuredImg);
         navigate("/");
       }
     });
   };
 
+  console.log(post);
+  console.log("FEATURED IMG:", post?.featuredImg);
+
   return post ? (
     <div className="py-8">
       <Container>
         <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-          <img
-            src={appWriteService.getFilePreview(post.featuredImage)}
-            alt={post.title}
-            className="rounded-xl"
-          />
+          {post?.featuredImg && (
+            <img
+              src={appWriteService.getFilePreview(post.featuredImg)}
+              alt={post.title}
+              className="rounded-xl"
+            />
+          )}
+
           {isAuthor && (
             <div className="absolute right-6 top-6">
               <Link to={`/edit-post/${post.$id}`}>
