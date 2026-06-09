@@ -116,13 +116,13 @@ export class Service {
     }
   }
 
-  getFilePreview(fileId) {
+  getFileView(fileId) {
     try {
-      console.log(config.appWriteBucketId);
-      console.log(fileId);
-      return this.bucket.getFilePreview(config.appWriteBucketId, fileId);
+      // console.log(config.appWriteBucketId);
+      // console.log(fileId);
+      return this.bucket.getFileView(config.appWriteBucketId, fileId);
     } catch (error) {
-      console.log("Appwrite service :: getFilePreview :: error", error);
+      console.log("Appwrite service :: getFileView :: error", error);
       return false;
     }
   }

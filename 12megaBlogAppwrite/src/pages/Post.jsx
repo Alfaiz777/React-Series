@@ -19,6 +19,7 @@ function Post() {
   useEffect(() => {
     if (slug) {
       appWriteService.getPost(slug).then((post) => {
+        console.log("POST FROM APPWRITE:", post);
         if (post) setPost(post);
         else navigate("/");
       });
@@ -37,13 +38,17 @@ function Post() {
   console.log(post);
   console.log("FEATURED IMG:", post?.featuredImg);
 
+  if (post?.featuredImg) {
+    console.log("Preview URL:", appWriteService.getFileView(post.featuredImg));
+  }
+
   return post ? (
     <div className="py-8">
       <Container>
         <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
           {post?.featuredImg && (
             <img
-              src={appWriteService.getFilePreview(post.featuredImg)}
+              src={appWriteService.getFileView(post.featuredImg)}
               alt={post.title}
               className="rounded-xl"
             />
