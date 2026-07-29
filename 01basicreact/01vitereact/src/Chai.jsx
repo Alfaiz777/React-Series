@@ -1,4 +1,4 @@
-const chai = () => {
+const Chai = () => {
   return (
     <div>
       <h1>chai is ready</h1>
@@ -6,4 +6,4 @@ const chai = () => {
   );
 };
 
-export default chai;
+export default Chai;

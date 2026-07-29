@@ -1,9 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { StrictMode } from 'react'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { StrictMode } from "react";
 // import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import "./index.css";
+import App from "./App.jsx";
 
 // function MyApp(){
 //   return(
@@ -23,23 +23,20 @@ import App from './App.jsx'
 // };
 
 const ReactElement = React.createElement(
-   'a',
-   {href:'https://google.com', target: '_blank'},
-   'click me to visit google'
-)
+  "a",
+  { href: "https://google.com", target: "_blank" },
+  "click me to visit google",
+);
 const AnotherElement = (
-  <a href='https://google.com' target='_blank'>visit google</a>
-)
+  <a href="https://google.com" target="_blank">
+    visit google
+  </a>
+);
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    
-    <App />
+    {/* <App /> */}
     {/* <MyApp /> */}
-    
-
-    
-    
+    {ReactElement}
   </StrictMode>,
-)
+);

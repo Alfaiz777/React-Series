@@ -160,7 +160,7 @@
 
 
 
-\-ASSIGNMENT - 
+\-ASSIGNMENT -
 
 &#x20;to work on redux flow and make it more better. if you see the store right now we have only one reducer auth, but there should come one more reducer post which has postslice. bcoz when component is loading specially ya mount ho rha hai so at that i can take all the information and keep that infor. in store bcoz my application does not need make web request again and again and so that i can easily take from store. will get you understand the flow and good for practice and interview.
 
@@ -174,13 +174,61 @@ see the code of input.jsx in that understand the code base for forward ref and s
 
 
 
+###### **How to Deploy React App to production:-**
+
+
+
+**create a separate repository and push that single application into GitHub(make sure you separate that application fully).**
+
+**create repo - appwriteblog.**
+
+**description - A sample application to deploy appwrite blog.- click - 'create repository '.**
+
+**write commands -**
+
+**git init. (make sure .env and node modules files should not be pushed. add .env file to .gitignore)**
+
+**git add . ->  will add all the files instead gitignore.**
+
+**git commit -m "first commit" -> write commit.**
+
+**git branch -M main -> to deploy production ready code.**
+
+**git remote add origin https://github.com/Alfaiz777/appwriteblog.git -> add origin**
+
+**git push -u origin main -> than push it to remote origin.**
+
+**then refresh page you  will see whole code.**
+
+
+
+**now we will deploy it on vercel first.**
+
+**import project from GitHub.**
+
+**then add env variables - step by step.**
+
+**then continue to dashboard.**
 
 
 
 
 
+**what we have learnt so far while making project -** 
 
 
+
+* created react app on frontned.
+* use appwrite for backend.
+* features we have built and logic we have understood  - signup, login, logout, redux/context, routing, CRUD -  text, file handling, Database, Auth, file management.
+
+
+
+below is the path to make applications and how to handle them.
+
+
+
+* freeapi.app - go to GitHub - clone the git repo in vs code - change CORS ORIGIN URL - now go to mongo DB - create cluster - then write username and password and create database user -  now go to cluster and click connect then click compass - copy the url -  and paste it in .env file of mongoDb url - the run command - npm run start to tart appl. - here you can see there are so many application, and this a blessing for frontend develpers bcoz here all backend app code is given and you need just build the frontend part, the same work is done in corporate too. - 
 
 
 
