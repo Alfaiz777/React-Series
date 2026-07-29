@@ -4,19 +4,19 @@ import "./App.css";
 function App() {
   let [counter, setCounter] = useState(0);
   const min = 0;
-  const max = 20;
+  const max = 10;
 
   // let counter = 5;
 
   const addValue = () => {
     if (counter < max) {
-      // setCounter((prevCounter) => prevCounter + 1);
-      // setCounter((prevCounter) => prevCounter + 1);
-
+      setCounter((prevCounter) => prevCounter + 1);
       // setCounter((prevCounter) => prevCounter + 1);
 
       // setCounter((prevCounter) => prevCounter + 1);
-      setCounter(counter + 1);
+
+      // setCounter((prevCounter) => prevCounter + 1);
+      // setCounter(counter + 1);
     }
   };
 
@@ -26,17 +26,34 @@ function App() {
     }
   };
 
+  const resetValue = () => {
+    if (counter !== 0) {
+      setCounter(0);
+    }
+  };
+
+  const incByfive = () => {
+    if (counter < max) {
+      setCounter(counter + 5);
+    }
+  };
+
   return (
     <>
       <h1>Chai aur React</h1>
       <h2>Counter value: {counter}</h2>
-      <button onClick={addValue} disabled={counter === max}>
+      <button
+        onClick={addValue}
+        disabled={counter === max && <p>Maximum limit reached</p>}
+      >
         Add value {counter}
-      </button>{" "}
+      </button>
       <br></br>
       <button onClick={removeValue} disabled={counter === min}>
         Remove value {counter}
       </button>
+      <button onClick={resetValue}>Reset value {counter}</button>
+      <button onClick={incByfive}>Increase by 5</button>
       <p>footer: {counter}</p>
     </>
   );
