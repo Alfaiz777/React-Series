@@ -1,16 +1,22 @@
-
-function Card({channel, btntext='visit me'}) {
-    console.log(channel)
+function Card({
+  channel = "unknown",
+  btntext = "visit me",
+  img,
+  views = 0,
+  anotherobj,
+}) {
+  console.log(channel);
   return (
-     <div className="md:max-w-sm w-full p-6 rounded-xl shadow-xl bg-black border border-zinc-800 hover:border-white transition-all duration-300 hover:transform hover:scale-105 group">
+    <div className="md:max-w-sm w-full p-6 rounded-xl shadow-xl bg-black border border-zinc-800 hover:border-white transition-all duration-300 hover:transform hover:scale-105 group">
       <div className="relative overflow-hidden rounded-lg mb-6">
         <img
-          src="https://picsum.photos/400/300?random=90"
+          src={img || "https://picsum.photos/400/300?random=90"}
           alt="Featured content"
           width={400}
           height={300}
           className="object-cover object-center w-full h-48 transition-transform duration-300 group-hover:scale-110"
         />
+
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
@@ -41,11 +47,12 @@ function Card({channel, btntext='visit me'}) {
               clipRule="evenodd"
             />
           </svg>
-          <span>234 views</span>
+          <span>{views} views</span>
+          <span>{anotherobj?.name}</span>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;
